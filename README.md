@@ -1,5 +1,5 @@
 ---
-tags: json, WIP
+tags: json, WIP, parse, parsing, jQuery
 language: JavaScript, JS
 ---
 
