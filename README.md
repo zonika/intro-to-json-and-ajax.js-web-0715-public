@@ -5,8 +5,9 @@ language: JavaScript, JS
 
 # JSON
 
-##Objectives:
-To gain a working knowledge of JSON.
+##Objective:
+Gain a working knowledge of JSON.
+Learn how to convert an object into JSON and back again.
 
 ##Introduction:
 
