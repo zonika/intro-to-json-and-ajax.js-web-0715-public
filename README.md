@@ -11,7 +11,7 @@ Learn how to convert an object into JSON and back again.
 
 ##Introduction to JSON:
 
-*  JSON stands for **J**ava**S**cript **O**bject **N**otation
+*  JSON stands for JavaScript Object Notation
 *  Let's imagine you've purchased some furniture from a store, and you want it delivered. In the shop, the chest-of-drawers you've purchased is a living object:
   ```javascript
   var chestOfDrawers = {
