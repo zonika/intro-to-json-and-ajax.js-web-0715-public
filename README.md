@@ -13,17 +13,17 @@ Learn how to convert an object into JSON and back again.
 
 *  JSON stands for JavaScript Object Notation
 *  Let's imagine you've purchased some furniture from a store, and you want it delivered. In the shop, the chest-of-drawers you've purchased is a living object:
-  ```javascript
-  var chestOfDrawers = {
-      color: 'red',
-      numberOfDrawers: 4
-  }
-  ```
+```javascript
+var chestOfDrawers = {
+  color: 'red',
+  numberOfDrawers: 4
+}
+```
 *  It's easier to ship if the company dismantles it 
-  ```javascript
-  JSON.stringify(chestOfDrawers)
+```javascript
+JSON.stringify(chestOfDrawers)
   --> '{"color":"red","numberOfDrawers":4}'
-  ```
+```
 *  Now it's in flat pack form making it easier to transport. (Notice in JSON all properties get  double quotes and strings also get double quotes. In fact single quotes are forbidden. Numbers and booleans do not neccesarily need quotes. All other syntax rules follow the same as Javascript Object notation rules.)
 *  To ship/get the furniture, you use To "assemble" the furniture you receive, you have to rebuild it. the chest-of-drawers (using $.parseJSON();). It's now back in an object form.
 
