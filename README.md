@@ -1,6 +1,6 @@
 ---
-tags: json, WIP, parse, parsing, jQuery
-language: JavaScript, JS
+  tags: json, WIP, parse, parsing, jQuery
+  language: JavaScript, JS
   resources: 1
 ---
 
