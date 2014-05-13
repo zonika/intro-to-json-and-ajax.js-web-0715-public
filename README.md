@@ -1,6 +1,7 @@
 ---
 tags: json, WIP, parse, parsing, jQuery
 language: JavaScript, JS
+  resources: 1
 ---
 
 # JSON
@@ -51,3 +52,6 @@ JSON.stringify(chestOfDrawers)
 3. Convert "ride" into JSON, set this equal to the variable "JSONride"
 4. Declare the variable "parseJSONride" and set it equal to the value of parsing "JSONride"
 5. Log "parseJSONride" to the console. How does it compare it to the value of "ride"?
+
+## Resources
+* [jQuery Documentation](http://jquery.com/) - [Parsing JSON](http://api.jquery.com/jquery.parsejson/)
