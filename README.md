@@ -1,9 +1,3 @@
----
-tags: json, parse, parsing, jQuery
-language: JavaScript, JS
-resources: 5
----
-
 # JSON
 
 ## Overview
