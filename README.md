@@ -21,13 +21,15 @@ resources: 1
 
 ## Introduction to JSON
 
-JSON stands for JavaScript Object Notation and it has become the defacto standard for computer-to-computer communiation (APIs). Sites like Flickr, WeatherUnderground, and Spotify expose at least some of their data in a JSON format. For instance, take a look at Spotify's data for the most streamed songs in the US today:
+JSON stands for JavaScript Object Notation and it has become the defacto standard for computer-to-computer communiation (APIs). Sites like Flickr, WeatherUnderground, and Spotify expose at least some of their data in a JSON format. 
+
+Before we get our hands dirty, install the Chrome extension [JSONView](https://github.com/jamiew/jsonview-chrome) and then open this page using a Chrome browser. Now that you've installed the extention, which will just make JSON easier to read, take a look at OpenWeatherMap's data for the weather in New York today here: [http://api.openweathermap.org/data/2.5/weather?q=New%20York,us](http://api.openweathermap.org/data/2.5/weather?q=New%20York,us)
+
+Here's another example, it's Spotify's data for the most streamed songs in the US today:
 
 [http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)
 
-If this link takes you to a crazy mess of text, install the Chrome extension [JSONView](https://github.com/jamiew/jsonview-chrome) and then open the site using a Chrome browser.
-
-This open Chart API that Spotify provides is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
+This object that you see on the page linked above is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
 
 ## First Code Along
 
