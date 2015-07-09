@@ -27,6 +27,29 @@ Before we get our hands dirty, install the Chrome extension [JSONView](https://g
 
 [http://api.openweathermap.org/data/2.5/weather?q=New%20York,us](http://api.openweathermap.org/data/2.5/weather?q=New%20York,us)
 
+The page you opened probably looks something like this:
+
+```json
+{  
+   "coord":{  
+      "lon":-74.01,
+      "lat":40.71
+   },
+   "weather":[  
+      {  
+         "id":721,
+         "main":"Haze",
+         "description":"haze",
+         "icon":"50d"
+      }
+   ],
+   "id":5128581,
+   "name":"New York",
+   "cod":200,
+   "etc.":"..."
+}
+```
+
 Here's another example, it's Spotify's data for the most streamed songs in the US today:
 
 [http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)
