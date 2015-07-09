@@ -1,7 +1,7 @@
 ---
 tags: json, parse, parsing, jQuery
 language: JavaScript, JS
-resources: 4
+resources: 5
 ---
 
 # JSON
@@ -14,9 +14,9 @@ resources: 4
 ## Overview
 
 * Intro to JSON
-* First Code Along - AJAX with Spotify's Chart API
+* AJAX with Spotify's Chart API
 * Parsing and Stringifying JSON
-* Second Code Along - Stringifying/Parsing a Custom Object Literal
+* Code Challenge - Stringifying/Parsing a Custom Object Literal
 * Resources
 
 ## Introduction to JSON
@@ -56,9 +56,15 @@ Here's another example, it's Spotify's data for the most streamed songs in the U
 
 This object that you see on the page linked above is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
 
-## First Code Along
+## AJAX with Spotify's Chart API
 
-Our challenge is to load this JSON in JavaScript (with jQuery's help), use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)). This function accepts an object literal where you specify the url, whether you're posting/getting/patching/etc., and what datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
+Our challenge is to load this JSON in JavaScript (with jQuery's help), use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)).
+
+[AJAX](http://stackoverflow.com/a/1510156/2890716) stands for Asynchronous Javascript And Xml. In a nutshell, it allows your browser to send and fetch information to and from APIs without a page refesh. Pretty much, AJAX makes it possible to update parts of a web page, without reloading the whole page.
+
+How awesome is this? The awesomest! AJAX rules because page refeshes take a long time and users these days are impatient. Who wants to wait while a page loads, just to click a button that will load another page?!? Not me. 
+
+Okay, back to coding. jQuery's `ajax()` function accepts an object literal. This object is where you can specify the url, what kind of request you're making (post/get/patch/etc.), and what kind of datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
 
 Okay, so this is what we have so far:
 
@@ -170,7 +176,7 @@ JSON.stringify(chestOfDrawers)
 *  Now it's in flat pack form making it easier to transport. (Notice in JSON all properties get  double quotes and strings also get double quotes. In fact single quotes are forbidden. Numbers and booleans do not neccesarily need quotes. All other syntax rules follow the same as Javascript Object notation rules.)
 *  To ship/get the furniture, you use To "assemble" the furniture you receive, you have to rebuild it. the chest-of-drawers (using jQuery's `$.parseJSON()` function). It's now back in an object form.
 
-## Second Code Along
+## Code Challenge - Stringifying/Parsing a Custom Object Literal
 
 * Open up this page in Chrome or Firefox and then open up the browser console.
 * Make sure jQuery is loaded by typing `jQuery` or `$`
@@ -198,3 +204,4 @@ ride.product();       // Returns 'Yamaha V-Star Silverado 1100'
 * [Wikipedia - APIs](https://en.wikipedia.org/wiki/Application_programming_interface)
 * [SquareSpace Docs - What is JSON?](http://developers.squarespace.com/what-is-json/)
 * [Copter Labs - JSON: What It Is and How to Use It](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
+* [StackOverflow - How Does AJAX Work?](http://stackoverflow.com/questions/1510011/how-does-ajax-work)
