@@ -11,6 +11,14 @@ resources: 1
 * Gain a working knowledge of JSON.
 * Learn how to convert an object into JSON and back again.
 
+## Overview
+
+* Intro to JSON
+* First Code Along - AJAX with Spotify's Chart API
+* Parsing and Stringifying JSON
+* Second Code Along - Stringifying/Parsing a Custom Object Literal
+* Resources
+
 ## Introduction to JSON
 
 JSON stands for JavaScript Object Notation and it has become the defacto standard for computer-to-computer communiation (APIs). Sites like Flickr, WeatherUnderground, and Spotify expose at least some of their data in a JSON format. For instance, take a look at Spotify's data for the most streamed songs in the US today:
@@ -21,7 +29,7 @@ If this link takes you to a crazy mess of text, install the Chrome extension [JS
 
 This open Chart API that Spotify provides is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
 
-## Code Along
+## First Code Along
 
 Our challenge is to load this JSON in JavaScript (with jQuery's help), use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)). This function accepts an object literal where you specify the url, whether you're posting/getting/patching/etc., and what datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
 
@@ -115,7 +123,7 @@ Back in early July 2015, this code logged the following to the console:
 
 Unless Ellie Golding's track stays number one on Spotify for forever, this code should print a different song title for you.
 
-## Example
+## Parsing and Stringifying JSON
 
 Let's imagine you've purchased some furniture from a store, and you want it delivered. In the shop, the chest-of-drawers you've purchased is a living object:
 
@@ -135,31 +143,32 @@ JSON.stringify(chestOfDrawers)
 *  Now it's in flat pack form making it easier to transport. (Notice in JSON all properties get  double quotes and strings also get double quotes. In fact single quotes are forbidden. Numbers and booleans do not neccesarily need quotes. All other syntax rules follow the same as Javascript Object notation rules.)
 *  To ship/get the furniture, you use To "assemble" the furniture you receive, you have to rebuild it. the chest-of-drawers (using jQuery's `$.parseJSON()` function). It's now back in an object form.
 
-## Code Along
+## Second Code Along
 
-1. Create "ride" that will behave as seen below:
+* Open up this page in Chrome or Firefox and then open up the browser console.
+* Make sure jQuery is loaded by typing `jQuery` or `$`
+* Create "ride" that will behave as seen below:
+
 ```javascript
-  ride.make
-    --> 'Yamaha'
-  ride.model
-    --> 'V-Star Silverado 1100'
-  ride.year
-    --> 2005
-  ride.purchased
-    --> Tue Apr 12 2005 00:00:00 GMT-0400 (EDT)
-  ride.owner.firstName
-    --> 'Spike'
-  ride.owner.lastName
-    --> 'Spiegel'
-  ride.product
-    --> [Function]
-  ride.product();
-    --> 'Yamaha V-Star Silverado 1100'
+ride.make             // Returns 'Yamaha'
+ride.model            // Returns 'V-Star Silverado 1100'
+ride.year             // Returns 2005
+ride.purchased        // Returns Tue Apr 12 2005 00:00:00 GMT-0400 (EDT)
+ride.owner.firstName  // Returns 'Spike'
+ride.owner.lastName   // Returns 'Spiegel'
+ride.product          // Returns [Function]
+ride.product();       // Returns 'Yamaha V-Star Silverado 1100'
 ```
-2. Log "ride" to the console
-3. Convert "ride" into JSON, set this equal to the variable "JSONride"
-4. Declare the variable "parseJSONride" and set it equal to the value of parsing "JSONride"
-5. Log "parseJSONride" to the console. How does it compare it to the value of "ride"?
+
+* Log "ride" to the console
+* Convert "ride" into JSON, set this equal to the variable "JSONride"
+* Declare the variable "parseJSONride" and set it equal to the value of parsing "JSONride"
+* Log "parseJSONride" to the console. How does it compare it to the value of "ride"?
 
 ## Resources
+
 * [jQuery Documentation](http://jquery.com/) - [Parsing JSON](http://api.jquery.com/jquery.parsejson/)
+* [Wikipedia - APIs](https://en.wikipedia.org/wiki/Application_programming_interface)
+* [SquareSpace Docs - What is JSON?](http://developers.squarespace.com/what-is-json/)
+* [Copter Labs - JSON: What It Is and How to Use It](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
+* 
