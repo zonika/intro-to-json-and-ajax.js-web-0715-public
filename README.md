@@ -4,7 +4,7 @@ language: JavaScript, JS
 resources: 5
 ---
 
-# JSON and AJAX
+# JSON
 
 ## Overview
 
@@ -58,58 +58,68 @@ This object that you see on the page linked above is a JSON object. The property
 
 How awesome is this? The awesomest! AJAX rules because page refeshes take a long time and users these days are impatient. Who wants to wait while a page loads, just to click a button that will load another page?!? Not me. 
 
-## AJAX with Spotify Chart's API
+## AJAX with Spotify's Chart API
 
-For this section, we'll eventually work up to adding the most streamed song on Spotify today to the bottom of this webpage. To do this, we'll break up the work we need to do into these __ sections:
+The eventual goal of this section is for you to add the name of the most streamed song on Spotify to the end of this HTML page. To accomplish this goal, we'll break up the task into these five steps:
 
-* Making an AJAX Call
-* 
+* Making an AJAX Request
+* Processing the Request's Data
+* Printing the Song Object to the Console
+* Printing the Song Title to the Console
+* Adding the Song Title to the DOM
 
-#### Making an AJAX Call
+#### Making an AJAX Request
 
-We're trying to load the JSON (located [here](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)) that Spotify provides. To do this, we'll use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)). 
+The first step is to load the data []() here in our browser. To do this, we'll use jQuery's `ajax()` function:
 
+```javascript
+$.ajax(…) // we'll add code here later
+```
 
-This function accepts an object literal. This object is where you can specify the url, what kind of request you're making (post/get/patch/etc.), and what kind of datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
+The `ajax()` function accepts an object literal. This object is where you can specify the url, what kind of request you're making (post/get/patch/etc.), and what kind of datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
 
 Okay, so this is what we have so far:
 
 ```javascript
 $.ajax({
-  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
-  method: "GET",
-  dataType: "JSONP"
+  "url":  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  "method": "GET",
+  "dataType": "JSONP"
 }) // we'll add code here in a second
 ```
 
-Now we're going to chain a method onto the return value for this AJAX request. When the request is successful, we want to do some parsing of the data we get back, so we'll chain on the `.success()` function:
+#### Processing the Request's Data
+
+The second step to making an AJAX "GET" request is to process the data the request returns when the request is successful. Let's chain a method onto the return value for this AJAX request. When the request is successful, we want to do some parsing of the data we get back, so we'll chain on the `.success()` function:
 
 ```javascript
 $.ajax({
-  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
-  method: "GET",
-  dataType: "JSONP"
+  "url":  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  "method": "GET",
+  "dataType": "JSONP"
 }).success(…);
 ```
 The `success()` function takes one argument, a function. This function should also accept one argument, the name of the data that will get returned:
 
 ```javascript
 $.ajax({
-  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
-  method: "GET",
-  dataType: "JSONP"
-}).success(function( spotifyData ) {
+  "url":  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  "method": "GET",
+  "dataType": "JSONP"
+}).success(function(spotifyData) {
   // we'll code here in a second
 });
 ```
 
-Here, `spotifyData` will be that big JSON object you see when you visit the chart page (remember, it looks like [this](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)). However, we don't want to log this huge amount of data. Let's just log the first track:
+#### Printing the Song Object to the Console
+
+When the code block above runs, `spotifyData` will be that big JSON object you see when you visit the chart page (remember, it looks like [this](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)). However, we don't want to log this huge amount of data. Let's just log the first track:
 
 ```javascript
 $.ajax({
-  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
-  method: "GET",
-  dataType: "JSONP"
+  "url":  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  "method": "GET",
+  "dataType": "JSONP"
 }).success(function(spotifyData) {
   var firstTrack = spotifyData.tracks[0];
   console.log(firstTrack);
@@ -126,6 +136,8 @@ In early July, 2015, this first track looks like this:
   "etc": "Links to the song, album, and artwork also appear here"
 {
 ```
+
+#### Printing the Song Title to the Console
 
 Since we don't want to print all the song's title, not its artist, album, etc. we can use dot notation:
 
@@ -162,7 +174,20 @@ Back in early July 2015, this code logged the following to the console:
 
 Unless Ellie Golding's track stays number one on Spotify for forever, this code should print a different song title for you.
 
+#### Adding the Song Title to the DOM
 
+Non-developers never open the console, or if they do it's by complete accident, so logging this song title to the console will be completely invisible to them. Let's change the `console.log()` function into a jQuery function that will add append text as an H2 to the DOM's `<body>` tag.
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(function(spotifyData) {
+  var songTitle = spotifyData.tracks[0].track_name;
+  $("body").append("<h2> "+ songTitle + "</h2>")
+});
+```
 
 ## Parsing and Stringifying JSON
 
