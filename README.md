@@ -4,16 +4,12 @@ language: JavaScript, JS
 resources: 5
 ---
 
-# JSON
-
-## Objectives
-
-* Gain a working knowledge of JSON.
-* Learn how to convert an object into JSON and back again.
+# JSON and AJAX
 
 ## Overview
 
-* Intro to JSON
+* Introduction to JSON
+* Introduction to AJAX
 * AJAX with Spotify's Chart API
 * Parsing and Stringifying JSON
 * Code Challenge - Stringifying/Parsing a Custom Object Literal
@@ -56,15 +52,25 @@ Here's another example, it's Spotify's data for the most streamed songs in the U
 
 This object that you see on the page linked above is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
 
-## AJAX with Spotify's Chart API
-
-Our challenge is to load this JSON in JavaScript (with jQuery's help), use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)).
+## Introduction to AJAX
 
 [AJAX](http://stackoverflow.com/a/1510156/2890716) stands for Asynchronous Javascript And Xml. In a nutshell, it allows your browser to send and fetch information to and from APIs without a page refesh. Pretty much, AJAX makes it possible to update parts of a web page, without reloading the whole page.
 
 How awesome is this? The awesomest! AJAX rules because page refeshes take a long time and users these days are impatient. Who wants to wait while a page loads, just to click a button that will load another page?!? Not me. 
 
-Okay, back to coding. jQuery's `ajax()` function accepts an object literal. This object is where you can specify the url, what kind of request you're making (post/get/patch/etc.), and what kind of datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
+## AJAX with Spotify Chart's API
+
+For this section, we'll eventually work up to adding the most streamed song on Spotify today to the bottom of this webpage. To do this, we'll break up the work we need to do into these __ sections:
+
+* Making an AJAX Call
+* 
+
+#### Making an AJAX Call
+
+We're trying to load the JSON (located [here](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)) that Spotify provides. To do this, we'll use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)). 
+
+
+This function accepts an object literal. This object is where you can specify the url, what kind of request you're making (post/get/patch/etc.), and what kind of datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
 
 Okay, so this is what we have so far:
 
@@ -155,6 +161,8 @@ Back in early July 2015, this code logged the following to the console:
 ```
 
 Unless Ellie Golding's track stays number one on Spotify for forever, this code should print a different song title for you.
+
+
 
 ## Parsing and Stringifying JSON
 
