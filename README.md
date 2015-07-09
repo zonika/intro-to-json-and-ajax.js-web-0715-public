@@ -189,6 +189,8 @@ $.ajax({
 });
 ```
 
+Assuming the Spotify Chart API is functional, running the code above from your browser should add some content to the end of this page. Try it out for yourself! 
+
 ## Parsing and Stringifying JSON
 
 Let's imagine you've purchased some furniture from a store, and you want it delivered. In the shop, the chest-of-drawers you've purchased is a living object:
