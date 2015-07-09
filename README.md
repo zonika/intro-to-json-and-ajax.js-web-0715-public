@@ -5,8 +5,6 @@
 * Introduction to JSON
 * Introduction to AJAX
 * AJAX with Spotify's Chart API
-* Parsing and Stringifying JSON
-* Code Challenge - Stringifying/Parsing a Custom Object Literal
 * Resources
 
 ## Introduction to JSON
@@ -185,52 +183,10 @@ $.ajax({
 
 Assuming the Spotify Chart API is functional, running the code above from your browser should add some content to the end of this page. Try it out for yourself! 
 
-## Parsing and Stringifying JSON
-
-Let's imagine you've purchased some furniture from a store, and you want it delivered. In the shop, the chest-of-drawers you've purchased is a living object:
-
-```javascript
-var chestOfDrawers = {
-  color: 'red',
-  numberOfDrawers: 4
-}
-```
-*  It's easier to ship if the company dismantles it 
-
-```javascript
-JSON.stringify(chestOfDrawers)
-  --> '{"color":"red","numberOfDrawers":4}'
-```
-
-*  Now it's in flat pack form making it easier to transport. (Notice in JSON all properties get  double quotes and strings also get double quotes. In fact single quotes are forbidden. Numbers and booleans do not neccesarily need quotes. All other syntax rules follow the same as Javascript Object notation rules.)
-*  To ship/get the furniture, you use To "assemble" the furniture you receive, you have to rebuild it. the chest-of-drawers (using jQuery's `$.parseJSON()` function). It's now back in an object form.
-
-## Code Challenge - Stringifying/Parsing a Custom Object Literal
-
-* Open up this page in Chrome or Firefox and then open up the browser console.
-* Make sure jQuery is loaded by typing `jQuery` or `$`
-* Create "ride" that will behave as seen below:
-
-```javascript
-ride.make             // Returns 'Yamaha'
-ride.model            // Returns 'V-Star Silverado 1100'
-ride.year             // Returns 2005
-ride.purchased        // Returns Tue Apr 12 2005 00:00:00 GMT-0400 (EDT)
-ride.owner.firstName  // Returns 'Spike'
-ride.owner.lastName   // Returns 'Spiegel'
-ride.product          // Returns [Function]
-ride.product();       // Returns 'Yamaha V-Star Silverado 1100'
-```
-
-* Log "ride" to the console
-* Convert "ride" into JSON, set this equal to the variable "JSONride"
-* Declare the variable "parseJSONride" and set it equal to the value of parsing "JSONride"
-* Log "parseJSONride" to the console. How does it compare it to the value of "ride"?
-
 ## Resources
 
-* [jQuery Documentation](http://jquery.com/) - [Parsing JSON](http://api.jquery.com/jquery.parsejson/)
 * [Wikipedia - APIs](https://en.wikipedia.org/wiki/Application_programming_interface)
 * [SquareSpace Docs - What is JSON?](http://developers.squarespace.com/what-is-json/)
 * [Copter Labs - JSON: What It Is and How to Use It](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
 * [StackOverflow - How Does AJAX Work?](http://stackoverflow.com/questions/1510011/how-does-ajax-work)
+* [jQuery Documentation](http://jquery.com/)
