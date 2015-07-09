@@ -1,10 +1,10 @@
 tags:
   - json
-  - WIP
+  - api
+  - ajax
   - parse
   - parsing
-  - jQuery
+  - jquery
 languages:
-  - JavaScript
-  - JS
-resources: 1
+  - javascript
+resources: 5
