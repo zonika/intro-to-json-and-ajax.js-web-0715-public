@@ -1,7 +1,7 @@
 ---
 tags: json, parse, parsing, jQuery
 language: JavaScript, JS
-resources: 1
+resources: 4
 ---
 
 # JSON
@@ -173,4 +173,3 @@ ride.product();       // Returns 'Yamaha V-Star Silverado 1100'
 * [Wikipedia - APIs](https://en.wikipedia.org/wiki/Application_programming_interface)
 * [SquareSpace Docs - What is JSON?](http://developers.squarespace.com/what-is-json/)
 * [Copter Labs - JSON: What It Is and How to Use It](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
-* 
