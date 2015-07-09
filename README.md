@@ -1,7 +1,7 @@
 ---
-  tags: json, WIP, parse, parsing, jQuery
-  language: JavaScript, JS
-  resources: 1
+tags: json, parse, parsing, jQuery
+language: JavaScript, JS
+resources: 1
 ---
 
 # JSON
@@ -17,7 +17,103 @@ JSON stands for JavaScript Object Notation and it has become the defacto standar
 
 [http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)
 
+If this link takes you to a crazy mess of text, install the Chrome extension [JSONView](https://github.com/jamiew/jsonview-chrome) and then open the site using a Chrome browser.
 
+This open Chart API that Spotify provides is a JSON object. The property `tracks` points to an array of popular songs. The first item in this array is the most streamed song on Spotify today. 
+
+## Code Along
+
+Our challenge is to load this JSON in JavaScript (with jQuery's help), use jQuery's `ajax()` function (docs [here](http://api.jquery.com/jquery.ajax/)). This function accepts an object literal where you specify the url, whether you're posting/getting/patching/etc., and what datatype you want. While we do want JSON, we're going to specify JSONP. Don't worry too much about this for now, but if you insist on worrying about it, read [this](http://json-jsonp-tutorial.craic.com/index.html).
+
+Okay, so this is what we have so far:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}) // we'll add code here in a second
+```
+
+Now we're going to chain a method onto the return value for this AJAX request. When the request is successful, we want to do some parsing of the data we get back, so we'll chain on the `.success()` function:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(…);
+```
+The `success()` function takes one argument, a function. This function should also accept one argument, the name of the data that will get returned:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(function( spotifyData ) {
+  // we'll code here in a second
+});
+```
+
+Here, `spotifyData` will be that big JSON object you see when you visit the chart page (remember, it looks like [this](http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest)). However, we don't want to log this huge amount of data. Let's just log the first track:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(function(spotifyData) {
+  var firstTrack = spotifyData.tracks[0];
+  console.log(firstTrack);
+});
+```
+
+In early July, 2015, this first track looks like this:
+
+```javascript
+{
+  "track_name": "Love Me Like You Do",
+  "artist": "Ellie Goulding",
+  "album": "Fifty Shades of Grey",
+  "etc": "Links to the song, album, and artwork also appear here"
+{
+```
+
+Since we don't want to print all the song's title, not its artist, album, etc. we can use dot notation:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(function(spotifyData) {
+  var firstTrack = spotifyData.tracks[0];
+  var songTitle = firstTrack.track_name;
+  console.log(songTitle);
+});
+```
+
+The first two lines of the `success()` function can be combined into one if you're into that sort of thing:
+
+```javascript
+$.ajax({
+  url:  "http://charts.spotify.com/api/tracks/most_streamed/us/daily/latest",
+  method: "GET",
+  dataType: "JSONP"
+}).success(function(spotifyData) {
+  var songTitle = spotifyData.tracks[0].track_name;
+  console.log(songTitle);
+});
+```
+
+Back in early July 2015, this code logged the following to the console:
+
+```shell
+"Love Me Like You Do"
+```
+
+Unless Ellie Golding's track stays number one on Spotify for forever, this code should print a different song title for you.
 
 ## Example
 
