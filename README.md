@@ -23,7 +23,9 @@ resources: 4
 
 JSON stands for JavaScript Object Notation and it has become the defacto standard for computer-to-computer communiation (APIs). Sites like Flickr, WeatherUnderground, and Spotify expose at least some of their data in a JSON format. 
 
-Before we get our hands dirty, install the Chrome extension [JSONView](https://github.com/jamiew/jsonview-chrome) and then open this page using a Chrome browser. Now that you've installed the extention, which will just make JSON easier to read, take a look at OpenWeatherMap's data for the weather in New York today here: [http://api.openweathermap.org/data/2.5/weather?q=New%20York,us](http://api.openweathermap.org/data/2.5/weather?q=New%20York,us)
+Before we get our hands dirty, install the Chrome extension [JSONView](https://github.com/jamiew/jsonview-chrome) and then open this page using a Chrome browser. Now that you've installed the extention, which will just make JSON easier to read, take a look at OpenWeatherMap's data for the weather in New York today here:
+
+[http://api.openweathermap.org/data/2.5/weather?q=New%20York,us](http://api.openweathermap.org/data/2.5/weather?q=New%20York,us)
 
 Here's another example, it's Spotify's data for the most streamed songs in the US today:
 
